@@ -34,14 +34,14 @@ window.addEventListener("scroll", () => {
 });
 (function () {
   const images = [
-    "images/six.jpeg",
-    "images/one.png",
-    "images/two.jpg",
-    "images/three.jpg",
-    "images/four.png",
-    "images/five.png",
-    "images/seven.jpeg",
-    "images/eight.jpeg"
+    "static/images/six.jpeg",
+    "static/images/one.png",
+    "static/images/two.jpg",
+    "static/images/three.jpg",
+    "static/images/four.png",
+    "static/images/five.png",
+    "static/images/seven.jpeg",
+    "static/images/eight.jpeg"
   ];
 
 // if i switch between pages the images stop the transition, make it transit once user activity detected
