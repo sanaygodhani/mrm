@@ -182,7 +182,7 @@ body {
     font-size: 1.8rem;
     font-family: 'Pristina';
     font-weight: 700;
-    color: #808000;
+    color: white;
     text-decoration: none;
     letter-spacing: -0.5px;
 }
@@ -200,8 +200,8 @@ body {
 }
 
 .whatsapp-link img {
-  width: 22px;
-  height: 22px;
+  width: 33px;
+  height: 33px;
   margin-left: 0.8rem;
   overflow: hidden;
   opacity: 0.9;
@@ -482,29 +482,40 @@ body {
 }
   @media (max-width: 768px) {
     .main-navbar {
-      padding: 0.6rem 1rem;
+        padding: 0.6rem 1rem;
     }
-    
-    .nav-left, .nav-right {
-      gap: 1.2rem;
+
+    .nav-container {
+        flex-wrap: wrap;        /* allows logo to drop to next line */
     }
-    
+    .nav-left {
+        gap: 1.2rem;
+        flex: 1;
+        order: 1;               /* left links first */
+    }
+    .nav-right {
+        gap: 1.2rem;
+        flex: 1;
+        justify-content: flex-end;
+        order: 2;               /* right links second */
+    }
+    .nav-logo {
+        position: static;
+        transform: none;
+        order: 3;               /* logo drops to second row */
+        width: 100%;            /* takes full width so it centers alone */
+        justify-content: center;
+        padding: 0.3rem 0;
+    }
+
     .nav-link {
-      font-size: 0.85rem;
+        font-size: 0.85rem;
     }
-    
-    .logo-text {
-      font-size: 0.9rem;
-      letter-spacing: 1px;
+
+    .logo {
+        font-size: 1.4rem;
     }
-    .content-overlay h1 {
-        font-size: 2rem;
-    }
-    .content-overlay p {
-        font-size: 0.9rem;
-        padding: 0.45rem 1.2rem;
-    }
-  }
+}
 
   /* For very small screens, hide text and keep icon */
   @media (max-width: 480px) {
