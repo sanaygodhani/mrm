@@ -759,6 +759,9 @@ body {
     .content-overlay {
       padding: 0 6% 8%;
     }
+    .home-eyebrow {
+      padding-top: 11%;
+    }
   
     .home-body-grid {
       grid-template-columns: 1fr;
