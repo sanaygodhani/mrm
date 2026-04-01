@@ -182,7 +182,7 @@ body {
     font-size: 1.8rem;
     font-family: 'Pristina';
     font-weight: 700;
-    color: white;
+    color: azure;
     text-decoration: none;
     letter-spacing: -0.5px;
 }
@@ -230,97 +230,380 @@ body {
     backdrop-filter: blur(16px);
     border-bottom-color: rgba(255, 255, 255, 0.25);
   } */
+/* ── HOME CONTENT OVERLAY ─────────────────────────────── */
 .content-overlay {
-    position: relative;
-    font-family: -apple-system-ui-serif, ui-serif, 'Georgia', serif;
-    z-index: 10;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: flex-start; /* Changed from 'center' to 'flex-start' for left alignment */
-    height: 100vh;
-    color: white;
-    text-align: left; /* Changed from 'center' to 'left' */
-    pointer-events: none;
-    padding-left: 8%; /* Adds left spacing for better visual balance */
-    padding-top: 30%;
-    /* padding-right: 20%;  */
-    max-width: 1300px; /* Limits width for better readability */
-}
-
-.content-overlay h1 {
-    font-size: clamp(2.5rem, 8vw, 4.5rem);
-    /* font-size: 2.8rem; */
-    font-weight: 500;
-    margin-bottom: 1rem;
-    color: #fff;
-    line-height: 1.2;
-    text-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
-    letter-spacing: -0.02em;
-    max-width: 100%;
-}
-
-.content-overlay p {
-    font-size: 1.2rem;
-    margin-bottom: 2rem;
-    color: rgba(255, 255, 255, 0.92);
-    text-shadow: 0 1px 4px rgba(0, 0, 0, 0.3);
-    max-width: 90%;
-    font-weight: 500;
-}
-
-.btn {
-    display: inline-block;
-    background: transparent;
-    border: 2px solid rgba(255, 255, 255, 0.9);
-    color: white;
-    padding: 12px 32px;
-    font-weight: 600;
-    text-decoration: none;
-    border-radius: 40px;
-    transition: all 0.3s cubic-bezier(0.2, 0.9, 0.4, 1.1);
-    cursor: pointer;
-    font-size: 1rem;
-    letter-spacing: 0.5px;
-    backdrop-filter: blur(4px);
-    background-color: rgba(0, 0, 0, 0.2);
-    pointer-events: auto; /* Makes button clickable while parent has pointer-events: none */
-}
-
-.btn:hover {
-    background: #808000;
-    color: #161616;
-    border-color: #808000;
-    transform: translateY(-2px);
-    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
-}
-
-/* Add a subtle left-edge accent to enhance the left-aligned design */
-.content-overlay::before {
-    content: '';
-    position: absolute;
-    left: 0;
-    top: 30%;
-    width: 4px;
-    height: 40%;
-    background: linear-gradient(to bottom, #808000, rgba(128, 128, 0, 0.4));
-    border-radius: 0 4px 4px 0;
-    opacity: 0.7;
-    pointer-events: none;
-}
-
-.section {
-  padding: 5rem 2rem;
   position: relative;
   z-index: 10;
-  background: rgba(0, 0, 0, 0.7);
-  margin-top: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  align-items: flex-start;
+  min-height: 100vh;
+  color: white;
+  text-align: left;
+  pointer-events: none;
+  padding: 0 8% 6%;
+  max-width: 1300px;
 }
-.section-inner {
-  max-width: 1000px;   /* controls BOTH title & cards width */
-  margin: 0 auto;      /* centers everything */
+
+/* Eyebrow line above headline */
+.home-eyebrow {
+  padding-top: 11%;
+  font-family: 'Inter', system-ui, sans-serif;
+  font-size: 0.7rem;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: azure;
+  font-weight: 500;
+  margin-bottom: 1.2rem;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  pointer-events: auto;
+}
+
+.home-eyebrow::before {
+  content: '';
+  display: inline-block;
+  width: 28px;
+  height: 0.5px;
+  background: #808000;
+  flex-shrink: 0;
+}
+
+/* Headline */
+.content-overlay h1 {
+  font-family: 'Georgia', ui-serif, serif;
+  font-size: clamp(2.8rem, 7vw, 5rem);
+  font-weight: 400;
+  margin-bottom: 0;
+  color: #fff;
+  line-height: 1.08;
+  text-shadow: 0 2px 12px rgba(0, 0, 0, 0.35);
+  letter-spacing: -0.02em;
+  max-width: 760px;
+}
+
+.content-overlay h1 em {
+  font-style: italic;
+  color: #808000;
+}
+
+/* Thin horizontal rule */
+.home-rule {
+  width: 44px;
+  height: 1px;
+  background:#808000;
+  margin: 2rem 0;
+  flex-shrink: 0;
+}
+
+/* Two-column body grid */
+.home-body-grid {
+  display: grid;
+  grid-template-columns: 1.15fr 0.85fr;
+  gap: 4%;
+  align-items: start;
   width: 100%;
+  max-width: 1000px;
+  pointer-events: auto;
 }
+
+/* Left — intro text */
+.home-welcome-label {
+  font-family: 'Inter', system-ui, sans-serif;
+  font-size: 1.0rem;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: azure;
+  font-weight: 500;
+  margin-bottom: 0.85rem !important;
+}
+
+.home-body-text {
+  font-family: 'Georgia', ui-serif, serif;
+  font-size: 0.98rem !important;
+  line-height: 1.85 !important;
+  color: rgba(255, 255, 255, 0.7) !important;
+  font-weight: 400 !important;
+  max-width: 500px;
+  margin-bottom: 0 !important;
+  text-shadow: 0 1px 4px rgba(0, 0, 0, 0.3);
+}
+
+.home-body-text strong {
+  color: rgba(255, 255, 255, 0.92);
+  font-weight: 600;
+}
+
+/* Right — highlights panel */
+.home-highlights {
+  padding: 1.6rem 1.6rem 1.4rem;
+  border: 0.5px solid #808000;
+  border-radius: 3px;
+  position: relative;
+}
+
+.home-highlights::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 1.5px;
+  height: 100%;
+  background: linear-gradient(to bottom, #808000, rgba(200,185,138,0));
+  border-radius: 3px 0 0 3px;
+}
+
+.home-highlights-label {
+  font-family: 'Inter', system-ui, sans-serif;
+  font-size: 1.0rem;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: white;
+  font-weight: 500;
+  margin-bottom: 1.2rem !important;
+}
+
+.home-highlights-list {
+  list-style: none;
+  padding: 0;
+  margin: 0 !important;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.home-highlights-list li {
+  font-family: 'Georgia', ui-serif, serif;
+  font-size: 0.88rem;
+  line-height: 1.6;
+  color: rgba(255, 255, 255, 0.6);
+  font-weight: 400;
+  padding-left: 1.1rem;
+  position: relative;
+  text-shadow: 0 1px 3px rgba(0,0,0,0.25);
+}
+
+.home-highlights-list li::before {
+  content: '—';
+  position: absolute;
+  left: 0;
+  color: rgba(200, 185, 138, 0.45);
+  font-size: 0.7rem;
+  top: 0.1em;
+}
+
+.home-highlights-list li strong {
+  color: rgba(255, 255, 255, 0.88);
+  font-weight: 600;
+  display: block;
+  margin-bottom: 0.1rem;
+  font-size: 0.9rem;
+}
+
+/* CTA strip */
+.home-cta-strip {
+  display: flex;
+  align-items: center;
+  gap: 1.6rem;
+  margin-top: 2.8rem;
+  padding-top: 2rem;
+  border-top: 0.5px solid rgba(200, 185, 138, 0.12);
+  width: 100%;
+  max-width: 1000px;
+  pointer-events: auto;
+  flex-wrap: wrap;
+}
+
+.btn-primary-cta {
+  font-family: 'Inter', system-ui, sans-serif;
+  font-size: 0.7rem;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  font-weight: 500;
+  color: #1a1a16;
+  background: #808000c8;
+  padding: 0.72rem 1.9rem;
+  border-radius: 2px;
+  text-decoration: none;
+  transition: background 0.2s ease, transform 0.15s ease;
+  white-space: nowrap;
+}
+
+.btn-primary-cta:hover {
+  background: #808000;
+  transform: translateY(-1px);
+}
+
+.btn-ghost-cta {
+  font-family: 'Inter', system-ui, sans-serif;
+  font-size: 0.7rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  font-weight: 500;
+  color: rgba(255, 255, 255, 0.88);
+  text-decoration: none;
+  border-bottom: 0.5px solid #808000;
+  padding-bottom: 2px;
+  transition: color 0.2s ease, border-color 0.2s ease;
+  white-space: nowrap;
+}
+
+.btn-ghost-cta:hover {
+  color: #808000;
+  border-color: #808000;
+}
+
+.home-cta-note {
+  font-family: 'Georgia', ui-serif, serif;
+  font-size: 0.78rem !important;
+  color: rgba(255, 255, 255, 0.88) !important;
+  font-weight: 400 !important;
+  font-style: italic;
+  margin: 0 !important;
+  margin-left: auto !important;
+  text-shadow: none !important;
+}
+#about {
+  position: relative;
+  z-index: 10;
+  width: 100vw;
+  margin: 0;
+  padding: 0;
+  pointer-events: auto;
+  display: flex;
+  flex-direction: column;
+}
+
+/* Remove container class styling, make each section-content a full-width row */
+#about .section-content {
+  width: 100%;
+  background: transparent;
+  padding: 5rem 8%;
+  border-bottom: 1px solid rgba(128, 128, 0, 0.25);
+  transition: all 0.4s ease;
+  position: relative;
+  backdrop-filter: blur(2px);
+}
+
+/* Add olive gradient borders between sections */
+#about .section-content:not(:last-child)::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 8%;
+  width: 84%;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, #808000, #c4c47a, #808000, transparent);
+}
+
+/* First section gets top padding adjustment */
+#about .section-content:first-child {
+  padding-top: 7rem;
+}
+
+/* Last section gets extra bottom padding */
+#about .section-content:last-child {
+  padding-bottom: 7rem;
+  border-bottom: none;
+}
+
+/* Hover effect for each row */
+#about .section-content:hover {
+  background: rgba(10, 10, 20, 0.4);
+  backdrop-filter: blur(4px);
+}
+
+/* Section title styling - elegant and minimal */
+#about .section-title {
+  font-family: 'Inter', system-ui, sans-serif;
+  font-size: 2.2rem;
+  font-weight: 500;
+  letter-spacing: -0.02em;
+  background: linear-gradient(135deg, #ffffff 30%, #c4c47a 85%);
+  background-clip: text;
+  -webkit-background-clip: text;
+  color: transparent;
+  margin-bottom: 1.5rem;
+  position: relative;
+  display: inline-block;
+}
+
+/* Olive green accent line under title */
+#about .section-title::after {
+  content: '';
+  position: absolute;
+  bottom: -8px;
+  left: 0;
+  width: 60px;
+  height: 2px;
+  background: #808000;
+  transition: width 0.3s ease;
+}
+
+#about .section-content:hover .section-title::after {
+  width: 100px;
+}
+
+/* Paragraph text styling - larger, more readable, full width */
+#about .section-ptag {
+  font-family: 'Georgia', 'Times New Roman', serif;
+  font-size: 1.12rem;
+  line-height: 1.85;
+  color: rgba(255, 255, 255, 0.88);
+  font-weight: 400;
+  max-width: 1000px;
+  margin: 0;
+  text-shadow: 0 1px 3px rgba(0, 0, 0, 0.2);
+}
+
+/* Strong emphasis with olive green underline */
+#about .section-ptag strong {
+  color: #d4d48a;
+  font-weight: 600;
+  border-bottom: 1px solid rgba(128, 128, 0, 0.5);
+  transition: border-color 0.2s;
+}
+
+/* Special styling for Pristina font within paragraphs */
+#about .section-ptag span[style*="Pristina"] {
+  font-size: 1.45rem !important;
+  background: linear-gradient(135deg, #f5f5c0, #c9c97a);
+  background-clip: text;
+  -webkit-background-clip: text;
+  color: transparent;
+  font-weight: 500;
+  display: inline-block;
+}
+
+/* Optional: decorative olive corner accents for each row */
+#about .section-content {
+  position: relative;
+  overflow: hidden;
+}
+
+#about .section-content::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: radial-gradient(circle at 0% 0%, rgba(128, 128, 0, 0.03), transparent 70%);
+  pointer-events: none;
+}
+
+/* Add subtle olive border on the left side of each row */
+#about .section-content {
+  border-left: 3px solid transparent;
+  transition: border-left-color 0.3s ease;
+}
+
+#about .section-content:hover {
+  border-left-color: #808000;
+}
+
 
 .footer {
   position: relative;
@@ -471,16 +754,26 @@ body {
   border-color: #808000;
 }
 
-.section-title {
-  text-align: center;
-  font-size: 2.5rem;
-  margin-bottom: 2rem;
-  max-width: 900px;   /* optional: keeps title nicely wrapped */
-  margin-left: auto;
-  margin-right: auto;
-  color: #fff;
-}
+
   @media (max-width: 768px) {
+    .content-overlay {
+      padding: 0 6% 8%;
+    }
+  
+    .home-body-grid {
+      grid-template-columns: 1fr;
+      gap: 1.8rem;
+    }
+  
+    .home-cta-strip {
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 1rem;
+    }
+  
+    .home-cta-note {
+      margin-left: 0 !important;
+    }
     .main-navbar {
         padding: 0.6rem 1rem;
     }
@@ -514,6 +807,31 @@ body {
 
     .logo {
         font-size: 1.4rem;
+    }
+    #about .section-content {
+      padding: 3rem 6%;
+    }
+    
+    #about .section-content:first-child {
+      padding-top: 5rem;
+    }
+    
+    #about .section-content:last-child {
+      padding-bottom: 5rem;
+    }
+    
+    #about .section-title {
+      font-size: 1.8rem;
+      margin-bottom: 1.2rem;
+    }
+    
+    #about .section-ptag {
+      font-size: 1rem;
+      line-height: 1.75;
+    }
+    
+    #about .section-ptag span[style*="Pristina"] {
+      font-size: 1.3rem !important;
     }
 }
 
