@@ -757,11 +757,17 @@ body {
 
   @media (max-width: 768px) {
     .content-overlay {
-      padding: 20% 6% 8%;
+      padding: 0 6% 8%;
+      padding-top: 1rem;
     }
+    .home-eyebrow {
+      padding-top: 25% !important;
+      margin-top: 1rem;
+      }
     .home-body-grid {
       grid-template-columns: 1fr;
       gap: 1.8rem;
+      margin-top: 0.5rem;
     }
   
     .home-cta-strip {
@@ -833,7 +839,11 @@ body {
       font-size: 1.3rem !important;
     }
 }
-
+@media (max-width: 768px) and (orientation: landscape) {
+  .home-eyebrow {
+    padding-top: 15% !important;
+  }
+}
   /* For very small screens, hide text and keep icon */
   @media (max-width: 480px) {
     .logo-text {
