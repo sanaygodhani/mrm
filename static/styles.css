@@ -757,12 +757,8 @@ body {
 
   @media (max-width: 768px) {
     .content-overlay {
-      padding: 0 6% 8%;
+      padding: 20% 6% 8%;
     }
-    .home-eyebrow {
-      padding-top: 28%;
-    }
-  
     .home-body-grid {
       grid-template-columns: 1fr;
       gap: 1.8rem;
