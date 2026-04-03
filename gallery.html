@@ -1,0 +1,129 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Gallery - Mishal Reborn Metals LLP</title>
+  <link href="static/styles.css" rel="stylesheet" />
+</head>
+<body>
+    <nav id="navbar">
+        <a class="nav-brand" href="index.html">Mishal Reborn Metals</a>
+        <button class="nav-toggle" id="navToggle" onclick="toggleNav()" aria-label="Menu">
+          <span></span><span></span><span></span>
+        </button>
+        <ul class="nav-links" id="navLinks">
+          <li><a href="index.html">Home</a></li>
+          <li><a href="index.html#about">About Us</a></li>
+          <li><a href="index.html#services">Services &amp; Products</a></li>
+          <li><a href="gallery.html">Gallery</a></li>
+          <li><a href="index.html#contact">Contact Us</a></li>
+        </ul>
+      </nav>
+        
+    <section id="gallery">
+        <div class="section">
+        <p class="section-label">Our Work</p>
+        <h2 class="section-title">A glimpse into our<br><em>operations</em></h2>
+        <p class="section-body" style="margin-bottom:3rem;">From our European source yards to our Surat sorting facility — real material, handled with care.</p>
+    
+        <div class="gallery-grid">
+            <div class="gallery-item gallery-wide">
+            <img src="static/images/3.jpeg" alt="Facility overview" />
+            <div class="gallery-caption">Sorting Facility — Surat</div>
+            </div>
+            <div class="gallery-item gallery-tall">
+            <img src="static/images/five.png" alt="Operations" />
+            <div class="gallery-caption">Grading Operations</div>
+            </div>
+    
+            <div class="gallery-item">
+            <img src="static/images/aluminium.jpeg" alt="Aluminium scrap" />
+            <div class="gallery-caption">Aluminium — Sorted &amp; Ready</div>
+            </div>
+            <div class="gallery-item">
+            <img src="static/images/copper.jpeg" alt="Copper scrap" />
+            <div class="gallery-caption">Copper Grades</div>
+            </div>
+            <div class="gallery-item">
+            <img src="static/images/brass.jpeg" alt="Brass scrap" />
+            <div class="gallery-caption">Brass Lots</div>
+            </div>
+    
+            <div class="gallery-item gallery-tall">
+            <img src="static/images/iron.png" alt="Iron scrap" />
+            <div class="gallery-caption">Iron — Pre-shipment Inspection</div>
+            </div>
+            <div class="gallery-item gallery-wide">
+            <img src="static/images/steel.jpeg" alt="Steel scrap" />
+            <div class="gallery-caption">Steel — European Yard</div>
+            </div>
+    
+            <div class="gallery-item gallery-feature">
+            <img src="static/images/a1.jpeg" alt="Warehouse" />
+            <div class="gallery-caption gallery-caption-feature">Our Warehouse &amp; Processing Floor</div>
+            </div>
+        </div>
+        </div>
+    </section>
+    <footer>
+        <div class="footer-top">
+          <div>
+            <div class="footer-brand">Mishal Reborn Metals LLP</div>
+            <div class="footer-tagline">Turning scrap into lasting relationships</div>
+            <a href="https://maps.app.goo.gl/XAs3vdvxXci3HCGb8"  target="_blank" rel="noopener noreferrer" class="footer-address-link">Plot No. 139, Block No. 50, Sukhram Industrial Estate, Umra Gam, Umra, Surat, Gujarat - 395007</a>
+          </div>
+          <div class="footer-cta-text">
+            <p>Let's build a reliable supply together. Partner with Mishal Reborn Metals for transparent sourcing, careful grading, and deliveries you can count on.</p>
+            <a class="btn-primary" href="index.html#contact">Request a Quote</a>
+          </div>
+        </div>
+        <div class="footer-bottom">
+          <span class="footer-copy">Copyright &copy; 2026 Mishal Reborn Metals LLP — All Rights Reserved.</span>
+          <span class="footer-copy">Surat, Gujarat, India</span>
+        </div>
+    </footer>
+    <script>
+        document.querySelectorAll('a[href^="#"]').forEach(link => {
+          link.addEventListener('click', e => {
+            const target = document.querySelector(link.getAttribute('href'));
+            if (!target) return;
+            e.preventDefault();
+            target.scrollIntoView({ behavior: 'smooth' });
+            // close mobile nav
+            document.getElementById('navLinks').classList.remove('open');
+            document.getElementById('navToggle').classList.remove('open');
+          });
+        });
+      
+        /* ── Active nav highlight on scroll ── */
+        window.addEventListener('scroll', () => {
+            document.getElementById('navbar').classList.toggle('scrolled', window.scrollY > 10);
+        });   
+
+    /* ── Mobile nav toggle ── */
+        function toggleNav() {
+            document.getElementById('navLinks').classList.toggle('open');
+            document.getElementById('navToggle').classList.toggle('open');
+        }
+
+    /* ── Gallery lightbox ── */
+        const galleryItems = document.querySelectorAll('.gallery-item img');
+        galleryItems.forEach(img => {
+            img.style.cursor = 'zoom-in';
+            img.addEventListener('click', () => {
+            const overlay = document.createElement('div');
+            overlay.className = 'lightbox';
+            overlay.innerHTML = `<div class="lightbox-inner"><img src="${img.src}" alt="${img.alt}"><button class="lightbox-close">✕</button></div>`;
+            document.body.appendChild(overlay);
+            overlay.addEventListener('click', e => {
+                if (e.target === overlay || e.target.classList.contains('lightbox-close')) overlay.remove();
+            });
+            });
+        });
+        
+        </script>
+
+    </body>
+    </html>
