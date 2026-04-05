@@ -29,35 +29,6 @@
   --text-mid-alt:   var(--text-mid);
   --text-light-alt: var(--text-light);
 }
-
-/* :root {
-  --bg-main: #f6f7f4;
-  --bg-secondary: #edf0eb;
-  --text-dark: #161c18;
-  --text-mid: #475248;
-  --text-light: #8a9690;
-  --border-color: #d4ddd6;
-  --border-hairline: #eef1ec;
-  --primary: #2d6a4f;
-  --primary-hover: #1b4332;
-  --primary-light: #74c69d;
-  --primary-fade: rgba(45, 106, 79, 0.06);
-  --link: #2d6a4f;
-  --link-hover: rgba(45, 106, 79, 0.7);
-  --footer-bg: #1b2e24;
-  --footer-text: #f6f7f4;
-  --header-bg: rgba(246, 247, 244, 0.92);
-  --header-link: #161c18;
-  --sale-bg: #c87c3a;
-  --alabaster: var(--bg-main);
-  --beige: var(--border-color);
-  --sage: var(--primary);
-  --sage-dark: var(--primary-hover);
-  --text-dark-alt: var(--text-dark);
-  --text-mid-alt: var(--text-mid);
-  --text-light-alt: var(--text-light);
-} */
-
 *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
 body {
@@ -150,7 +121,7 @@ section[id] {
 }
 .hero-bg {
   position: absolute; inset: 0;
-  background: url('/static/images/3.jpeg') center center / cover no-repeat;
+  background: url('https://sanaygodhani.github.io/mrm/static/images/3.jpeg') center center / cover no-repeat;
   transform: scale(1.04);
   opacity: 1;
   animation: zoomOut 12s ease forwards;
@@ -225,6 +196,7 @@ section[id] {
 
 /* ===== LAYOUT HELPERS ===== */
 .section { padding: 5.5rem 8%; }
+.section-alt { background: var(--border-hairline); }
 
 .section-label {
   font-size: 0.7rem;
@@ -285,7 +257,7 @@ section[id] {
 
 .split { display: grid; grid-template-columns: 1fr 1fr; }
 .split-img {
-  background: url('/static/images/home.jpeg') center/cover no-repeat;
+  background: url('https://sanaygodhani.github.io/mrm/static/images/home.jpeg') center/cover no-repeat;
   min-height: 460px;
 }
 .split-content { padding: 5rem 6%; display: flex; flex-direction: column; justify-content: center; }
