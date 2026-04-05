@@ -378,6 +378,7 @@ section[id] {
   position: relative;
   transition: background 0.25s;
   border-right: 1.5px solid var(--border-color);
+  border-top:1.5px solid var(--border-color);
 }
 .product-card:hover { background: var(--border-hairline); }
 .product-letter {
