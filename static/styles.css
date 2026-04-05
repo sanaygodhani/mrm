@@ -592,6 +592,34 @@ section[id] {
 }
 .contact-form-note strong { color: var(--text-dark-alt); font-weight: 500; }
 
+.contact-form-note a {
+  color: var(--primary);
+  text-decoration: none;
+  font-weight: 500;
+  border-bottom: 1px solid transparent;
+  transition: border-color 0.2s;
+}
+
+.contact-form-note a:hover {
+  border-bottom-color: var(--primary);
+}
+
+.map-wrapper {
+  width: 100%;
+  margin-top: 1.5rem;
+  overflow: hidden;
+  box-shadow: var(--shadow-sm);
+  background: #f0ece7;
+}
+
+.map-wrapper iframe {
+  display: block;
+  width: 100%;
+  height: auto;
+  aspect-ratio: 16 / 9;  /* maintain nice proportions, better than fixed height */
+  border: 0;
+  transition: all 0.2s;
+}
 /* ===== FOOTER ===== */
 footer {
   background: var(--footer-bg);
@@ -674,10 +702,25 @@ footer {
   .split { grid-template-columns: 1fr; }
   .split-img { min-height: 280px; }
   .about-grid { grid-template-columns: 1fr; gap: 0; }
-  .contact-grid { grid-template-columns: 1fr; gap: 3rem; }
+  .section {
+    padding: 4rem 6%;
+  }
+  .contact-grid {
+    grid-template-columns: 1fr;
+    gap: 2.5rem;
+  }
+  .section-title {
+    font-size: 1.9rem;
+  }
+  .contact-form-note {
+    padding: 1.8rem;
+  }
+  .map-wrapper iframe {
+    aspect-ratio: 16 / 9;
+    width: 100%;
+  }
   .qa-banner { grid-template-columns: 1fr; gap: 2rem; }
   .footer-top { flex-direction: column; }
-  .section { padding: 4rem 6%; }
   .gallery-grid {
     grid-template-columns: repeat(2, 1fr);
     grid-auto-rows: 220px;
@@ -696,4 +739,40 @@ footer {
   .gallery-wide,
   .gallery-tall,
   .gallery-feature { grid-column: span 1; grid-row: span 1; height: 200px; }
+  .section {
+    padding: 3rem 5%;
+  }
+  .section-title {
+    font-size: 1.7rem;
+    letter-spacing: -0.2px;
+  }
+  .section-body {
+    font-size: 1rem;
+    margin-bottom: 2.5rem !important;
+  }
+  .contact-value {
+    font-size: 0.95rem;
+    gap: 0.6rem;
+    margin-bottom: 1.2rem;
+  }
+  .contact-label {
+    font-size: 0.65rem;
+  }
+  .contact-form-note {
+    padding: 1.5rem;
+  }
+  .contact-form-note p {
+    font-size: 0.9rem;
+    line-height: 1.65;
+  }
+  .wa-link img {
+    width: 24px;
+    height: 24px;
+  }
+  .map-wrapper {
+    margin-top: 1.25rem;
+  }
+  .map-wrapper iframe {
+    aspect-ratio: 4 / 3;   /* on very small screens slightly taller for readability */
+  }
 }
