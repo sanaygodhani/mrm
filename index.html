@@ -8,6 +8,9 @@
   <link href="static/styles.css" rel="stylesheet" />
 </head>
 <body>
+  
+<!-- simple & dependable or the current text
+ 2  -->
 <nav id="navbar">
   <a class="nav-brand" href="#home">Mishal Reborn Metals</a>
   <button class="nav-toggle" id="navToggle" onclick="toggleNav()" aria-label="Menu">
@@ -80,6 +83,7 @@
       </div>
     </div>
   </div>
+</section>
 <section id="services">
   <div class="section">
     <div class="services-intro">
@@ -90,27 +94,27 @@
 
     <div class="services-list">
       <div class="service-card">
-        <div class="service-icon">🌍</div>
+        <div class="service-icon"><img src="static/icons/sandp.png"/></div>
         <div class="service-name">Sourcing &amp; Procurement</div>
         <div class="service-desc">From vetted European yards in Belgium, the Netherlands, and Germany — we select only material that meets our grading standards.</div>
       </div>
       <div class="service-card">
-        <div class="service-icon">⚙️</div>
+        <div class="service-icon"><img src="static/icons/recycle.jpg"/></div>
         <div class="service-name">On-site Sorting &amp; Grading</div>
         <div class="service-desc">Every lot is sorted and graded at our Surat facility before it moves. Consistent quality, every time.</div>
       </div>
       <div class="service-card">
-        <div class="service-icon">📋</div>
+        <div class="service-icon"><img src="static/icons/qc.png"/></div>
         <div class="service-name">Quality Checks &amp; Documentation</div>
         <div class="service-desc">Clear labeling, composition checks, and full paperwork for traceability — so buyers know exactly what they're receiving.</div>
       </div>
       <div class="service-card">
-        <div class="service-icon">🚢</div>
+        <div class="service-icon"><img src="static/icons/impexp.png"/></div>
         <div class="service-name">Logistics &amp; Import Handling</div>
         <div class="service-desc">We manage the full import process from European yards to Indian ports, delivering on time with clear communication throughout.</div>
       </div>
       <div class="service-card">
-        <div class="service-icon">📝</div>
+        <div class="service-icon"><img src="static/icons/flexible.jpg"/></div>
         <div class="service-name">Flexible Lots &amp; Contracts</div>
         <div class="service-desc">Lot sizes and contract terms tailored to your production schedule and budget — short-term or long-term.</div>
       </div>
@@ -211,10 +215,10 @@
           <p>Send your required grade, quantity, and preferred delivery timeline to inquire for a tailored quote. We respond promptly with clear pricing and delivery options.</p>
           <br/>
           <p>You can also reach us directly via <a href="https://wa.me/32475270702" target="_blank">WhatsApp</a> or <a href="mailto:mishalrebornmetalsllp@gmail.com">email</a> — our team is available Monday through Sunday, 9 AM to 7 PM IST.</p>
-        </div>
-        <div class="map-wrapper">
-          <iframe src="https://www.google.com/maps/embed?pb=!1m13!1m8!1m3!1d853.301931255596!2d72.8953858!3d21.2933011!3m2!1i1024!2i768!4f13.1!3m2!1m1!2zMjHCsDE3JzM1LjgiTiA3MsKwNTMnNDQuMiJF!5e1!3m2!1sen!2sin!4v1775373672856!5m2!1sen!2sin" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
-        </div>
+      </div> 
+      <div class="map-wrapper">
+        <iframe src="https://www.google.com/maps/embed?pb=!1m13!1m8!1m3!1d853.301931255596!2d72.8953858!3d21.2933011!3m2!1i1024!2i768!4f13.1!3m2!1m1!2zMjHCsDE3JzM1LjgiTiA3MsKwNTMnNDQuMiJF!5e1!3m2!1sen!2sin!4v1775373672856!5m2!1sen!2sin" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+      </div>
       </div>
     </div>
   </div>
@@ -237,6 +241,46 @@
   </div>
 </footer>
 
-<script src="static/page.js"></script>
+<script>
+  /* ── Smooth scroll for all anchor links ── */
+  document.querySelectorAll('a[href^="#"]').forEach(link => {
+    link.addEventListener('click', e => {
+      const target = document.querySelector(link.getAttribute('href'));
+      if (!target) return;
+      e.preventDefault();
+      target.scrollIntoView({ behavior: 'smooth' });
+      // close mobile nav
+      document.getElementById('navLinks').classList.remove('open');
+      document.getElementById('navToggle').classList.remove('open');
+    });
+  });
+
+  /* ── Active nav highlight on scroll ── */
+  const sections = document.querySelectorAll('section[id]');
+  const navLinks = document.querySelectorAll('.nav-links a[data-page]');
+
+  const observer = new IntersectionObserver(entries => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        navLinks.forEach(a => {
+          a.classList.toggle('active', a.dataset.page === entry.target.id);
+        });
+      }
+    });
+  }, { rootMargin: '-40% 0px -55% 0px' });
+
+  sections.forEach(s => observer.observe(s));
+
+  /* ── Sticky nav shadow ── */
+  window.addEventListener('scroll', () => {
+    document.getElementById('navbar').classList.toggle('scrolled', window.scrollY > 10);
+  });
+
+  /* ── Mobile nav toggle ── */
+  function toggleNav() {
+    document.getElementById('navLinks').classList.toggle('open');
+    document.getElementById('navToggle').classList.toggle('open');
+  }
+</script>
 </body>
 </html>
