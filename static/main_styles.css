@@ -145,7 +145,7 @@ section {
 }
 .hero-bg {
   position: absolute; inset: 0;
-  background: url('https://github.com/sanaygodhani/mrm/blob/main/static/images/wp1.jpeg') center center / cover no-repeat;
+  background: url('images/wp1.jpeg') center center / cover no-repeat;
   transform: scale(1.04);
   opacity: 1;
   animation: zoomOut 12s ease forwards;
