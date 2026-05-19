@@ -4,126 +4,290 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Gallery - Mishal Reborn Metals LLP</title>
-  <link href="static/styles.css" rel="stylesheet" />
+  <title>Gallery — Mishal Reborn Metals LLP</title>
+  <meta name="description" content="A visual journey through our European source yards, scrap sorting operations, and Surat processing facility. Real material, handled with precision." />
+  <link href="static/main_styles.css" rel="stylesheet" />
+  <link href="static/gallery_styles.css" rel="stylesheet" />
 </head>
-<body>
-    <nav id="navbar">
-        <a class="nav-brand" href="index.html">Mishal Reborn Metals</a>
-        <button class="nav-toggle" id="navToggle" onclick="toggleNav()" aria-label="Menu">
-          <span></span><span></span><span></span>
-        </button>
-        <ul class="nav-links" id="navLinks">
-          <li><a href="index.html">Home</a></li>
-          <li><a href="index.html#about">About Us</a></li>
-          <li><a href="index.html#services">Services &amp; Products</a></li>
-          <li><a href="gallery.html">Gallery</a></li>
-          <li><a href="index.html#contact">Contact Us</a></li>
-        </ul>
-      </nav>
-        
-    <section id="gallery">
-        <div class="section">
-        <p class="section-label">Our Work</p>
-        <h2 class="section-title">A glimpse into our<br><em>operations</em></h2>
-        <p class="section-body" style="margin-bottom:3rem;">From our European source yards to our Surat sorting facility — real material, handled with care.</p>
-    
-        <div class="gallery-grid">
-            <div class="gallery-item gallery-wide">
-            <img src="static/images/3.jpeg" alt="Facility overview" />
-            <div class="gallery-caption">Sorting Facility — Surat</div>
-            </div>
-            <div class="gallery-item gallery-tall">
-            <img src="static/images/five.png" alt="Operations" />
-            <div class="gallery-caption">Grading Operations</div>
-            </div>
-    
-            <div class="gallery-item">
-            <img src="static/images/aluminium.jpeg" alt="Aluminium scrap" />
-            <div class="gallery-caption">Aluminium — Sorted &amp; Ready</div>
-            </div>
-            <div class="gallery-item">
-            <img src="static/images/copper.jpeg" alt="Copper scrap" />
-            <div class="gallery-caption">Copper Grades</div>
-            </div>
-            <div class="gallery-item">
-            <img src="static/images/brass.jpeg" alt="Brass scrap" />
-            <div class="gallery-caption">Brass Lots</div>
-            </div>
-    
-            <div class="gallery-item gallery-tall">
-            <img src="static/images/iron.png" alt="Iron scrap" />
-            <div class="gallery-caption">Iron — Pre-shipment Inspection</div>
-            </div>
-            <div class="gallery-item gallery-wide">
-            <img src="static/images/steel.jpeg" alt="Steel scrap" />
-            <div class="gallery-caption">Steel — European Yard</div>
-            </div>
-    
-            <div class="gallery-item gallery-feature">
-            <img src="static/images/a1.jpeg" alt="Warehouse" />
-            <div class="gallery-caption gallery-caption-feature">Our Warehouse &amp; Processing Floor</div>
-            </div>
-        </div>
-        </div>
-    </section>
-    <footer>
-        <div class="footer-top">
-          <div>
-            <div class="footer-brand">Mishal Reborn Metals LLP</div>
-            <div class="footer-tagline">Turning scrap into lasting relationships</div>
-            <a href="https://maps.app.goo.gl/XAs3vdvxXci3HCGb8"  target="_blank" rel="noopener noreferrer" class="footer-address-link">Plot No. 139, Block No. 50, Sukhram Industrial Estate, Umra Gam, Umra, Surat, Gujarat - 395007</a>
-          </div>
-          <div class="footer-cta-text">
-            <p>Let's build a reliable supply together. Partner with Mishal Reborn Metals for transparent sourcing, careful grading, and deliveries you can count on.</p>
-            <a class="btn-primary" href="index.html#contact">Request a Quote</a>
-          </div>
-        </div>
-        <div class="footer-bottom">
-          <span class="footer-copy">Copyright &copy; 2026 Mishal Reborn Metals LLP — All Rights Reserved.</span>
-          <span class="footer-copy">Surat, Gujarat, India</span>
-        </div>
-    </footer>
-    <script>
-        document.querySelectorAll('a[href^="#"]').forEach(link => {
-          link.addEventListener('click', e => {
-            const target = document.querySelector(link.getAttribute('href'));
-            if (!target) return;
-            e.preventDefault();
-            target.scrollIntoView({ behavior: 'smooth' });
-            // close mobile nav
-            document.getElementById('navLinks').classList.remove('open');
-            document.getElementById('navToggle').classList.remove('open');
-          });
-        });
-      
-        /* ── Active nav highlight on scroll ── */
-        window.addEventListener('scroll', () => {
-            document.getElementById('navbar').classList.toggle('scrolled', window.scrollY > 10);
-        });   
+<body class="gallery-page">
+
+  <!-- ── Navigation ── -->
+  <nav id="navbar">
+    <a class="nav-brand" href="index.html">Mishal Reborn Metals</a>
+    <button class="nav-toggle" id="navToggle" onclick="toggleNav()" aria-label="Open menu">
+      <span></span><span></span><span></span>
+    </button>
+    <ul class="nav-links" id="navLinks">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="index.html#about">About Us</a></li>
+      <li><a href="index.html#services">Services &amp; Products</a></li>
+      <li><a href="gallery.html" class="active">Gallery</a></li>
+      <li><a href="index.html#contact">Contact Us</a></li>
+    </ul>
+  </nav>
+
+  <!-- ── Gallery Header ── -->
+  <header class="gallery-header">
+    <div class="gallery-header-inner">
+      <div class="gallery-eyebrow">
+        <span class="gallery-eyebrow-line"></span>
+        <span class="gallery-eyebrow-text">Our Work</span>
+      </div>
+      <h1>A glimpse into our<br><em>operations</em></h1>
+      <p>From our European source yards to our Surat sorting facility — real material, handled with care and precision.</p>
+      <div class="gallery-count">08 Photographs</div>
+    </div>
+  </header>
+
+  <div class="gallery-rule" aria-hidden="true"></div>
+
+  <!-- ── Immersive Gallery Grid ── -->
+  <section id="gallery" class="immersive-gallery" aria-label="Operations gallery">
+
+    <article class="immersive-item" tabindex="0" role="button" aria-label="Open: Surat Facility — Overview">
+      <div class="immersive-img-wrap">
+        <img src="static/images/g7.jpeg" alt="Aerial view of our Surat sorting facility" loading="lazy" />
+      </div>
+      <div class="item-details">
+        <div class="item-title">Surat Facility</div>
+        <div class="item-category">Overview</div>
+      </div>
+    </article>
+
+    <article class="immersive-item" tabindex="0" role="button" aria-label="Open: Grading — Operations">
+      <div class="immersive-img-wrap">
+        <img src="static/images/g1.png" alt="Scrap grading operations in progress" loading="lazy" />
+      </div>
+      <div class="item-details">
+        <div class="item-title">Grading</div>
+        <div class="item-category">Operations</div>
+      </div>
+    </article>
+
+    <article class="immersive-item" tabindex="0" role="button" aria-label="Open: Aluminium — Sorted">
+      <div class="immersive-img-wrap">
+        <img src="static/images/g2.jpeg" alt="Aluminium scrap sorted and ready for shipping" loading="lazy" />
+      </div>
+      <div class="item-details">
+        <div class="item-title">Aluminium</div>
+        <div class="item-category">Sorted &amp; Ready</div>
+      </div>
+    </article>
+
+    <article class="immersive-item" tabindex="0" role="button" aria-label="Open: Copper — Grades">
+      <div class="immersive-img-wrap">
+        <img src="static/images/g3.jpeg" alt="Copper scrap grades displayed for inspection" loading="lazy" />
+      </div>
+      <div class="item-details">
+        <div class="item-title">Copper</div>
+        <div class="item-category">Grades</div>
+      </div>
+    </article>
+
+    <article class="immersive-item" tabindex="0" role="button" aria-label="Open: Brass — Lots">
+      <div class="immersive-img-wrap">
+        <img src="static/images/g4.jpeg" alt="Brass scrap lots ready for export" loading="lazy" />
+      </div>
+      <div class="item-details">
+        <div class="item-title">Brass</div>
+        <div class="item-category">Lots</div>
+      </div>
+    </article>
+
+    <article class="immersive-item" tabindex="0" role="button" aria-label="Open: Iron — Pre-shipment Inspection">
+      <div class="immersive-img-wrap">
+        <img src="static/images/g5.jpeg" alt="Iron scrap undergoing pre-shipment inspection" loading="lazy" />
+      </div>
+      <div class="item-details">
+        <div class="item-title">Iron</div>
+        <div class="item-category">Inspection</div>
+      </div>
+    </article>
+
+    <article class="immersive-item" tabindex="0" role="button" aria-label="Open: Steel — European Yard">
+      <div class="immersive-img-wrap">
+        <img src="static/images/g6.jpeg" alt="Steel scrap at our European source yard" loading="lazy" />
+      </div>
+      <div class="item-details">
+        <div class="item-title">Steel</div>
+        <div class="item-category">European Yard</div>
+      </div>
+    </article>
+
+    <article class="immersive-item" tabindex="0" role="button" aria-label="Open: Warehouse — Processing Floor">
+      <div class="immersive-img-wrap">
+        <img src="static/images/g8.jpeg" alt="Our warehouse and processing floor interior" loading="lazy" />
+      </div>
+      <div class="item-details">
+        <div class="item-title">Warehouse</div>
+        <div class="item-category">Processing Floor</div>
+      </div>
+    </article>
+
+  </section>
+
+  <!-- ── Lightbox ── -->
+  <div id="luxLightbox" class="lux-lightbox" role="dialog" aria-modal="true" aria-label="Image viewer">
+    <div class="lux-topbar">
+      <span id="luxCaption" class="lux-lightbox-caption"></span>
+      <button class="lux-close" id="luxClose" aria-label="Close image viewer">
+        <svg viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12"/></svg>
+        Close
+      </button>
+    </div>
+
+    <div class="lux-lightbox-inner">
+      <img src="" alt="" id="luxImg" class="lux-lightbox-img" />
+    </div>
+
+    <button class="lux-nav lux-prev" id="luxPrev" aria-label="Previous image">
+      <svg viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M15.75 19.5L8.25 12l7.5-7.5"/></svg>
+    </button>
+    <button class="lux-nav lux-next" id="luxNext" aria-label="Next image">
+      <svg viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M8.25 4.5l7.5 7.5-7.5 7.5"/></svg>
+    </button>
+
+    <div class="lux-counter" id="luxCounter" aria-live="polite"></div>
+  </div>
+
+  <!-- ── Footer ── -->
+  <footer>
+    <div class="footer-top">
+      <div>
+        <div class="footer-brand">Mishal Reborn Metals LLP</div>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span class="footer-copy">Copyright &copy; 2026 Mishal Reborn Metals LLP — All Rights Reserved.</span>
+      <span class="footer-copy">Surat, Gujarat, India</span>
+    </div>
+  </footer>
+
+  <script>
+    /* ── Nav scroll state ── */
+    window.addEventListener('scroll', () => {
+      document.getElementById('navbar').classList.toggle('scrolled', window.scrollY > 10);
+    });
 
     /* ── Mobile nav toggle ── */
-        function toggleNav() {
-            document.getElementById('navLinks').classList.toggle('open');
-            document.getElementById('navToggle').classList.toggle('open');
+    function toggleNav() {
+      document.getElementById('navLinks').classList.toggle('open');
+      document.getElementById('navToggle').classList.toggle('open');
+    }
+
+    /* ── Smooth anchor scroll ── */
+    document.querySelectorAll('a[href^="#"]').forEach(link => {
+      link.addEventListener('click', e => {
+        const target = document.querySelector(link.getAttribute('href'));
+        if (!target) return;
+        e.preventDefault();
+        target.scrollIntoView({ behavior: 'smooth' });
+        document.getElementById('navLinks').classList.remove('open');
+        document.getElementById('navToggle').classList.remove('open');
+      });
+    });
+
+    /* ── Intersection Observer: clip-path curtain reveal ── */
+    const revealObserver = new IntersectionObserver((entries, obs) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('in-view');
+          obs.unobserve(entry.target);
         }
+      });
+    }, { root: null, rootMargin: '0px 0px -60px 0px', threshold: 0.08 });
 
-    /* ── Gallery lightbox ── */
-        const galleryItems = document.querySelectorAll('.gallery-item img');
-        galleryItems.forEach(img => {
-            img.style.cursor = 'zoom-in';
-            img.addEventListener('click', () => {
-            const overlay = document.createElement('div');
-            overlay.className = 'lightbox';
-            overlay.innerHTML = `<div class="lightbox-inner"><img src="${img.src}" alt="${img.alt}"><button class="lightbox-close">✕</button></div>`;
-            document.body.appendChild(overlay);
-            overlay.addEventListener('click', e => {
-                if (e.target === overlay || e.target.classList.contains('lightbox-close')) overlay.remove();
-            });
-            });
-        });
-        
-        </script>
+    document.querySelectorAll('.immersive-item').forEach(item => {
+      revealObserver.observe(item);
+    });
 
-    </body>
-    </html>
+    /* ── Keyboard accessibility: open lightbox with Enter/Space ── */
+    document.querySelectorAll('.immersive-item').forEach(item => {
+      item.addEventListener('keydown', e => {
+        if (e.key === 'Enter' || e.key === ' ') {
+          e.preventDefault();
+          item.click();
+        }
+      });
+    });
+
+    /* ── Lightbox ── */
+    const luxLightbox = document.getElementById('luxLightbox');
+    const luxImg      = document.getElementById('luxImg');
+    const luxCaption  = document.getElementById('luxCaption');
+    const luxClose    = document.getElementById('luxClose');
+    const luxPrev     = document.getElementById('luxPrev');
+    const luxNext     = document.getElementById('luxNext');
+    const luxCounter  = document.getElementById('luxCounter');
+
+    const items    = Array.from(document.querySelectorAll('.immersive-item'));
+    let currentIdx = 0;
+
+    function openLightbox(idx) {
+      currentIdx = idx;
+      const item = items[idx];
+      const img  = item.querySelector('img');
+      const title    = item.querySelector('.item-title').textContent;
+      const category = item.querySelector('.item-category').textContent;
+
+      luxImg.src     = img.src;
+      luxImg.alt     = img.alt;
+      luxCaption.textContent = `${title} — ${category}`;
+      luxCounter.textContent = `${String(idx + 1).padStart(2, '0')} / ${String(items.length).padStart(2, '0')}`;
+
+      luxLightbox.classList.add('active');
+      document.body.style.overflow = 'hidden';
+      luxClose.focus();
+    }
+
+    function closeLightbox() {
+      luxLightbox.classList.remove('active');
+      document.body.style.overflow = '';
+      setTimeout(() => { luxImg.src = ''; }, 500);
+    }
+
+    function navigateLightbox(dir) {
+      currentIdx = (currentIdx + dir + items.length) % items.length;
+      const item = items[currentIdx];
+      const img  = item.querySelector('img');
+      const title    = item.querySelector('.item-title').textContent;
+      const category = item.querySelector('.item-category').textContent;
+
+      /* Soft image swap with fade */
+      luxImg.style.opacity = '0';
+      luxImg.style.transform = 'scale(0.97) translateY(10px)';
+      setTimeout(() => {
+        luxImg.src = img.src;
+        luxImg.alt = img.alt;
+        luxCaption.textContent = `${title} — ${category}`;
+        luxCounter.textContent = `${String(currentIdx + 1).padStart(2, '0')} / ${String(items.length).padStart(2, '0')}`;
+        luxImg.style.opacity = '1';
+        luxImg.style.transform = 'scale(1) translateY(0)';
+      }, 250);
+    }
+
+    /* Click to open */
+    items.forEach((item, idx) => {
+      item.addEventListener('click', () => openLightbox(idx));
+    });
+
+    luxClose.addEventListener('click', closeLightbox);
+    luxPrev.addEventListener('click', () => navigateLightbox(-1));
+    luxNext.addEventListener('click', () => navigateLightbox(1));
+
+    /* Click outside to close */
+    luxLightbox.addEventListener('click', e => {
+      if (e.target === luxLightbox) closeLightbox();
+    });
+
+    /* Keyboard navigation */
+    document.addEventListener('keydown', e => {
+      if (!luxLightbox.classList.contains('active')) return;
+      if (e.key === 'Escape')      closeLightbox();
+      if (e.key === 'ArrowRight')  navigateLightbox(1);
+      if (e.key === 'ArrowLeft')   navigateLightbox(-1);
+    });
+  </script>
+
+</body>
+</html>
