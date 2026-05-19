@@ -145,7 +145,7 @@ section {
 }
 .hero-bg {
   position: absolute; inset: 0;
-  background: url('/static/images/wp1.jpeg') center center / cover no-repeat;
+  background: url('https://github.com/sanaygodhani/mrm/blob/main/static/images/wp1.jpeg') center center / cover no-repeat;
   transform: scale(1.04);
   opacity: 1;
   animation: zoomOut 12s ease forwards;
@@ -279,7 +279,7 @@ section {
 
 .split { display: grid; grid-template-columns: 1fr 1fr; }
 .split-img {
-  background: url('/static/images/wp3.JPG') center/cover no-repeat;
+  background: url('https://github.com/sanaygodhani/mrm/blob/main/static/images/wp3.JPG') center/cover no-repeat;
   min-height: 460px;
 }
 .split-content { padding: 5rem 6%; display: flex; flex-direction: column; justify-content: center; }
