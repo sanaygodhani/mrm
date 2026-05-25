@@ -726,7 +726,7 @@ footer {
   flex-wrap: wrap;
 }
 .footer-brand {
-  font-family: var(--font-sans);
+  font-family: 'Pristina';
   font-size: 1.5rem; /* Logo size 24px */
   font-weight: 600;
   letter-spacing: -0.04em;
