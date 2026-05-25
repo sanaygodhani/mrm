@@ -6,6 +6,9 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Gallery — Mishal Reborn Metals LLP</title>
   <meta name="description" content="A visual journey through our European source yards, scrap sorting operations, and Surat processing facility. Real material, handled with precision." />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Montserrat:wght@300;400;500;600;700&display=swap" rel="stylesheet">
   <link href="static/main_styles.css" rel="stylesheet" />
   <link href="static/gallery_styles.css" rel="stylesheet" />
 </head>
@@ -29,6 +32,7 @@
   <!-- ── Gallery Header ── -->
   <header class="gallery-header">
     <div class="gallery-header-inner">
+      <div class="glass-tag" style="margin-bottom: 1.5rem;">Operations Gallery</div>
       <div class="gallery-eyebrow">
         <span class="gallery-eyebrow-line"></span>
         <span class="gallery-eyebrow-text">Our Work</span>
@@ -164,10 +168,37 @@
   </footer>
 
   <script>
-    /* ── Nav scroll state ── */
+    /* ── Sticky nav scroll state & hide on scroll down, show on scroll up ── */
+    let lastScrollTop = 0;
+    const navbar = document.getElementById('navbar');
+    let isScrolled = false;
+    let isHidden = false;
+
     window.addEventListener('scroll', () => {
-      document.getElementById('navbar').classList.toggle('scrolled', window.scrollY > 10);
-    });
+      const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+      
+      // Toggle scrolled state smoothly
+      const shouldScroll = scrollTop > 10;
+      if (shouldScroll !== isScrolled) {
+        isScrolled = shouldScroll;
+        navbar.classList.toggle('scrolled', isScrolled);
+      }
+      
+      // Toggle hidden state smoothly depending on scroll direction
+      if (scrollTop > 80) {
+        const shouldHide = scrollTop > lastScrollTop;
+        if (shouldHide !== isHidden) {
+          isHidden = shouldHide;
+          navbar.classList.toggle('nav-hidden', isHidden);
+        }
+      } else {
+        if (isHidden) {
+          isHidden = false;
+          navbar.classList.remove('nav-hidden');
+        }
+      }
+      lastScrollTop = scrollTop <= 0 ? 0 : scrollTop;
+    }, { passive: true });
 
     /* ── Mobile nav toggle ── */
     function toggleNav() {
