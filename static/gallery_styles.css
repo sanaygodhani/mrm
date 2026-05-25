@@ -1,37 +1,85 @@
-@import url('https://fonts.googleapis.com/css2?family=Archivo:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400&family=Space+Grotesk:wght@300;400;500;600&display=swap');
-
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Montserrat:wght@300;400;500;600;700&display=swap');
 :root {
-  --g-bg:         #F4F2EE;
-  --g-ink:        #0D0D0D;
-  --g-muted:      #6B6B6B;
-  --g-border:     rgba(13, 13, 13, 0.1);
-  --g-overlay:    rgba(8, 8, 8, 0.92);
-  --g-accent:     #059669;
-  --g-gap:        clamp(1rem, 2.5vw, 2.5rem);
-  --reveal-ease:  cubic-bezier(0.76, 0, 0.24, 1);
+  /* ── Typography Switch (uncomment one to apply across the entire site) ── */
+  --font-sans: 'Inter', sans-serif;
+
+
+  --g-bg:         #FFFFFF; /* Clean White main background */
+  --g-ink:        #37474F; /* Industrial Dark for body text */
+  --g-muted:      #607D8B; /* Scrap Metal Grey for secondary text */
+  --g-border:     rgba(176, 190, 197, 0.4); /* Metallic Silver border */
+  --g-overlay:    rgba(55, 71, 79, 0.95); /* Frosted Industrial Dark overlay for lightbox */
+  --g-accent:     #4F95DA; /* Sky Blue Accent */
+  --g-gap:        clamp(1.5rem, 3vw, 3rem);
+  --reveal-ease:  cubic-bezier(0.16, 1, 0.3, 1);
   --hover-ease:   cubic-bezier(0.33, 1, 0.68, 1);
 }
 
 body.gallery-page {
   background: var(--g-bg);
   color: var(--g-ink);
+  font-family: var(--font-sans);
+  -webkit-font-smoothing: antialiased;
 }
 
+/* Keep nav completely synchronized with main styles */
 .gallery-page nav {
-  background: rgba(244, 242, 238, 0.88);
-  backdrop-filter: blur(12px);
-  -webkit-backdrop-filter: blur(12px);
-  border-bottom: 1px solid var(--g-border);
+  position: fixed;
+  top: 1.5rem;
+  left: 5%;
+  right: 5%;
+  z-index: 1000;
+  display: flex;
+  align-items: center; /* vertically center logo, links, and toggle */
+  justify-content: space-between; /* space brand to the left and links to the right */
+  padding: 8px 24px; /* px-4 py-2 padding */
+  height: 64px;
+  border-radius: 12px;
+  opacity: 1;
+  transform: translateY(0) scale(1);
+  transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.6s cubic-bezier(0.16, 1, 0.3, 1), background-color 0.4s ease, box-shadow 0.4s ease;
+  background: rgba(0, 0, 0, 0.75);
+  backdrop-filter: blur(8px) saturate(120%);
+  -webkit-backdrop-filter: blur(8px) saturate(120%);
+  box-shadow: inset 0 1px 1px rgba(255, 255, 255, 0.15), 0 8px 24px rgba(0, 0, 0, 0.2);
+  border: 1px solid transparent;
+}
+.gallery-page nav::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  padding: 1px;
+  background: linear-gradient(to bottom, rgba(255, 255, 255, 0.2), rgba(255, 255, 255, 0.02));
+  -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+  -webkit-mask-composite: xor;
+  mask-composite: exclude;
+  pointer-events: none;
+}
+.gallery-page nav.scrolled {
+  background: rgba(0, 0, 0, 0.9) !important;
+  box-shadow: inset 0 1px 1px rgba(255, 255, 255, 0.2), 0 12px 32px rgba(0, 0, 0, 0.3);
+}
+.gallery-page nav.nav-hidden {
+  transform: translateY(-100px) scale(0.97); /* extremely smooth slide and scale out */
+  opacity: 0; /* smooth fade out */
+  box-shadow: none;
+  pointer-events: none;
+  transition: transform 0.45s cubic-bezier(0.3, 0, 0.2, 1), opacity 0.4s ease-in, background-color 0.4s ease, box-shadow 0.4s ease;
 }
 
+.gallery-page .nav-links a {
+  color: #D1D5DB;
+}
 .gallery-page .nav-links a:hover,
 .gallery-page .nav-links a.active {
-  color: var(--g-ink);
-  border-bottom-color: var(--g-ink);
+  color: var(--color-white);
+  border-bottom-color: var(--g-accent);
 }
 
+/* ── Gallery Header ── */
 .gallery-header {
-  padding: clamp(6rem, 14vw, 12rem) 6% clamp(3rem, 6vw, 5rem);
+  padding: clamp(8rem, 16vw, 13rem) 6% clamp(3rem, 6vw, 4rem);
   position: relative;
   overflow: hidden;
 }
@@ -44,7 +92,7 @@ body.gallery-page {
   display: flex;
   align-items: center;
   gap: 1rem;
-  margin-bottom: 2rem;
+  margin-bottom: 1.5rem;
   overflow: hidden;
 }
 
@@ -63,10 +111,10 @@ body.gallery-page {
 }
 
 .gallery-eyebrow-text {
-  font-family: 'Space Grotesk', sans-serif;
-  font-size: 0.7rem;
+  font-family: var(--font-sans);
+  font-size: 0.72rem;
   font-weight: 500;
-  letter-spacing: 0.25em;
+  letter-spacing: 0.2em;
   text-transform: uppercase;
   color: var(--g-accent);
   opacity: 0;
@@ -79,11 +127,11 @@ body.gallery-page {
 }
 
 .gallery-header h1 {
-  font-family: 'Archivo', sans-serif;
-  font-size: clamp(3.2rem, 7vw, 6.5rem);
-  font-weight: 300;
-  line-height: 1.0;
-  letter-spacing: -0.03em;
+  font-family: var(--font-sans);
+  font-size: clamp(2.25rem, 7vw, 4.5rem); /* Heading: weight 400, letter-spacing -0.04em, responsive 4xl → 7xl */
+  font-weight: 400;
+  line-height: 1.1;
+  letter-spacing: -0.04em;
   color: var(--g-ink);
   overflow: hidden;
   opacity: 0;
@@ -92,9 +140,8 @@ body.gallery-page {
 }
 
 .gallery-header h1 em {
-  font-style: italic;
-  font-weight: 300;
-  color: var(--g-muted);
+  font-style: normal;
+  color: var(--g-muted); /* em highlighted with Scrap Metal Grey */
 }
 
 @keyframes riseUp {
@@ -102,13 +149,13 @@ body.gallery-page {
 }
 
 .gallery-header p {
-  font-family: 'Space Grotesk', sans-serif;
-  font-size: clamp(0.9rem, 1.5vw, 1.05rem);
-  font-weight: 300;
-  line-height: 1.9;
+  font-family: var(--font-sans);
+  font-size: clamp(0.95rem, 1.5vw, 1.1rem); /* Subheading: weight 400, base → lg */
+  font-weight: 400;
+  line-height: 1.8;
   color: var(--g-muted);
-  max-width: 520px;
-  margin-top: 2rem;
+  max-width: 580px;
+  margin-top: 1.5rem;
   opacity: 0;
   transform: translateY(24px);
   animation: riseUp 0.9s var(--reveal-ease) 0.7s forwards;
@@ -116,11 +163,12 @@ body.gallery-page {
 
 /* Gallery counter badge */
 .gallery-count {
-  font-family: 'Space Grotesk', sans-serif;
-  font-size: 0.72rem;
-  letter-spacing: 0.15em;
+  font-family: var(--font-sans);
+  font-size: 0.75rem;
+  font-weight: 500;
+  letter-spacing: 0.12em;
   color: var(--g-muted);
-  margin-top: 2.5rem;
+  margin-top: 2rem;
   opacity: 0;
   animation: riseUp 0.7s var(--reveal-ease) 0.9s forwards;
 }
@@ -137,6 +185,9 @@ body.gallery-page {
   animation: lineGrow 1s var(--reveal-ease) 0.8s forwards;
 }
 
+/* =========================================
+   MAIN GALLERY GRID — Premium Responsive
+   ========================================= */
 
 .immersive-gallery {
   padding: clamp(3rem, 6vw, 6rem) 6% clamp(5rem, 10vw, 10rem);
@@ -151,17 +202,17 @@ body.gallery-page {
 .immersive-item {
   position: relative;
   cursor: pointer;
-  /* Simple fade-in reveal */
   opacity: 0;
-  transition:
-    opacity 0.85s ease,
-    box-shadow 0.4s ease;
+  transition: opacity 0.85s ease, box-shadow 0.4s ease;
+  border-radius: 8px;
+  overflow: hidden;
 }
 
 .immersive-item.in-view {
   opacity: 1;
 }
 
+/* Staggered entrance delays */
 .immersive-item:nth-child(1) { transition-delay: 0.05s; }
 .immersive-item:nth-child(2) { transition-delay: 0.2s; }
 .immersive-item:nth-child(3) { transition-delay: 0.1s; }
@@ -171,7 +222,8 @@ body.gallery-page {
 .immersive-item:nth-child(7) { transition-delay: 0.3s; }
 .immersive-item:nth-child(8) { transition-delay: 0.1s; }
 
-
+/* ── Editorial Column Placements ── */
+/* Row 1: Big left feature + small right */
 .immersive-item:nth-child(1) {
   grid-column: 1 / 8;
   margin-top: 0;
@@ -218,7 +270,8 @@ body.gallery-page {
   overflow: hidden;
   display: block;
   width: 100%;
-  background: #D4D0C8; /* subtle placeholder tone */
+  background: var(--g-border); /* Metallic Silver placeholder */
+  border-radius: 8px;
 }
 
 .immersive-item img {
@@ -240,16 +293,17 @@ body.gallery-page {
   filter: saturate(1.05);
 }
 
-/* ── Subtle image hover overlay (no caption inside) ── */
+/* ── Subtle image hover overlay ── */
 .immersive-item::before {
   content: '';
   position: absolute;
   inset: 0;
-  background: rgba(8, 8, 8, 0.08);
+  background: rgba(55, 71, 79, 0.08); /* Industrial Dark light tint */
   opacity: 0;
   transition: opacity 0.35s ease;
   z-index: 1;
   pointer-events: none;
+  border-radius: 8px;
 }
 
 .immersive-item:hover::before {
@@ -261,33 +315,28 @@ body.gallery-page {
   display: flex;
   align-items: baseline;
   justify-content: space-between;
-  padding: 0.75rem 0 0;
+  padding: 0.85rem 0 0.25rem;
   gap: 1rem;
 }
 
 .item-title {
-  font-family: 'Archivo', sans-serif;
-  font-size: clamp(0.82rem, 1.4vw, 1rem);
-  font-weight: 400;
+  font-family: var(--font-sans);
+  font-size: clamp(0.85rem, 1.4vw, 1.05rem);
+  font-weight: 500;
   color: var(--g-ink);
   letter-spacing: -0.01em;
   line-height: 1.2;
 }
 
 .item-category {
-  font-family: 'Space Grotesk', sans-serif;
-  font-size: 0.65rem;
-  font-weight: 400;
+  font-family: var(--font-sans);
+  font-size: 0.68rem;
+  font-weight: 500;
   text-transform: uppercase;
-  letter-spacing: 0.18em;
+  letter-spacing: 0.12em;
   color: var(--g-muted);
   white-space: nowrap;
   flex-shrink: 0;
-}
-
-/* Item number — shown in caption row */
-.item-num {
-  display: none;
 }
 
 /* ── Expand icon on hover ── */
@@ -297,9 +346,7 @@ body.gallery-page {
   left: 50%;
   transform: translate(-50%, -50%) scale(0.7);
   opacity: 0;
-  transition:
-    opacity 0.3s ease,
-    transform 0.4s var(--hover-ease);
+  transition: opacity 0.3s ease, transform 0.4s var(--hover-ease);
   z-index: 3;
   pointer-events: none;
 }
@@ -319,7 +366,7 @@ body.gallery-page {
 }
 
 /* =========================================
-   LIGHTBOX — full-screen refined
+   LIGHTBOX — Frosted Liquid Glass Full-Screen
    ========================================= */
 
 .lux-lightbox {
@@ -364,11 +411,11 @@ body.gallery-page {
 }
 
 #luxCaption {
-  font-family: 'Archivo', sans-serif;
-  font-size: 0.85rem;
-  font-weight: 300;
-  color: rgba(255,255,255,0.75);
-  letter-spacing: 0.05em;
+  font-family: var(--font-sans);
+  font-size: 0.88rem;
+  font-weight: 400;
+  color: rgba(255,255,255,0.85);
+  letter-spacing: 0.02em;
 }
 
 .lux-close {
@@ -378,13 +425,14 @@ body.gallery-page {
   background: none;
   border: 1px solid rgba(255,255,255,0.2);
   color: rgba(255,255,255,0.8);
-  font-family: 'Space Grotesk', sans-serif;
-  font-size: 0.7rem;
+  font-family: var(--font-sans);
+  font-size: 0.72rem;
   font-weight: 500;
-  letter-spacing: 0.15em;
+  letter-spacing: 0.1em;
   text-transform: uppercase;
   cursor: pointer;
   padding: 0.5rem 1rem;
+  border-radius: 6px;
   transition: all 0.25s ease;
 }
 
@@ -418,12 +466,9 @@ body.gallery-page {
   object-fit: contain;
   opacity: 0;
   transform: scale(0.94) translateY(16px);
-  transition:
-    opacity 0.55s var(--reveal-ease),
-    transform 0.55s var(--reveal-ease);
-  box-shadow:
-    0 40px 80px rgba(0,0,0,0.6),
-    0 0 0 1px rgba(255,255,255,0.04);
+  transition: opacity 0.55s var(--reveal-ease), transform 0.55s var(--reveal-ease);
+  box-shadow: 0 40px 80px rgba(0,0,0,0.6), 0 0 0 1px rgba(255,255,255,0.04);
+  border-radius: 8px;
 }
 
 .lux-lightbox.active .lux-lightbox-img {
@@ -441,6 +486,7 @@ body.gallery-page {
   color: rgba(255,255,255,0.7);
   width: 48px;
   height: 48px;
+  border-radius: 50%;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -478,10 +524,10 @@ body.gallery-page {
   bottom: 1.5rem;
   left: 50%;
   transform: translateX(-50%);
-  font-family: 'Space Grotesk', sans-serif;
-  font-size: 0.7rem;
-  color: rgba(255,255,255,0.35);
-  letter-spacing: 0.15em;
+  font-family: var(--font-sans);
+  font-size: 0.72rem;
+  color: rgba(255,255,255,0.4);
+  letter-spacing: 0.12em;
   opacity: 0;
   transition: opacity 0.4s ease 0.3s;
 }
@@ -496,7 +542,6 @@ body.gallery-page {
 
 @media (prefers-reduced-motion: reduce) {
   .immersive-item {
-    clip-path: none !important;
     transition: none !important;
   }
   .immersive-item img {
@@ -539,7 +584,7 @@ body.gallery-page {
   .immersive-gallery {
     display: flex;
     flex-direction: column;
-    gap: clamp(1.2rem, 4vw, 2rem);
+    gap: clamp(1.5rem, 4vw, 2.5rem);
     padding: 2rem 5% 5rem;
   }
 
@@ -548,10 +593,7 @@ body.gallery-page {
     width: 100%;
   }
 
-  /* Caption always visible below image on mobile — already non-absolute */
-
   .item-expand { display: none; }
-
   .lux-nav { display: none; }
 
   .lux-lightbox-inner {
@@ -559,12 +601,18 @@ body.gallery-page {
   }
 
   .gallery-header {
-    padding: 7rem 5% 3rem;
+    padding: 8rem 5% 3rem;
   }
 }
 
 @media (max-width: 480px) {
   .gallery-header h1 {
-    font-size: clamp(2.2rem, 10vw, 3.5rem);
+    font-size: clamp(2rem, 10vw, 3.2rem);
+  }
+}
+
+@media (max-width: 900px) {
+  .gallery-page nav {
+    justify-content: space-between;
   }
 }
